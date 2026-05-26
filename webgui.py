@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env /mnt/users/daijun_chen/tools/miniconda3.10/install/envs/python3_echo/bin/python
 # -*- coding: UTF-8 -*-
 '''
 webui
@@ -166,6 +166,13 @@ def process_video(uploaded_img, uploaded_audio, width, height, length, seed, fac
         crop_rect = [max(0, cb - c_pad_crop), max(0, rb - r_pad_crop), min(ce + c_pad_crop, face_img.shape[1]), min(re + r_pad_crop, face_img.shape[0])]
         face_img = crop_and_pad(face_img, crop_rect)
         face_mask = crop_and_pad(face_mask, crop_rect)
+
+        print("type: ", type(face_img))
+        print(face_img[0])
+        width = int(width)
+        height = int(height)
+        face_img = face_img[0]
+        face_mask = face_mask[0]
         face_img = cv2.resize(face_img, (width, height))
         face_mask = cv2.resize(face_mask, (width, height))
 
@@ -257,6 +264,7 @@ with gr.Blocks() as demo:
         ],
         outputs=output_video
     )
+
 parser = argparse.ArgumentParser(description='EchoMimic')
 parser.add_argument('--server_name', type=str, default='0.0.0.0', help='Server name')
 parser.add_argument('--server_port', type=int, default=7680, help='Server port')

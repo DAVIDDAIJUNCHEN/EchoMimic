@@ -15,6 +15,8 @@ weight_dtype: 'fp16'
 
 ## test cases
 test_cases:
+  "./assets/test_imgs/dufu.png":
+    - "./assets/test_audios/chunnuanhuakai.wav"
   "./assets/test_imgs/a.png":
     - "./assets/test_audios/echomimic_en.wav"
   "./assets/test_imgs/b.png":
@@ -25,3 +27,4 @@ test_cases:
     - "./assets/test_audios/echomimic_en_girl.wav"
   "./assets/test_imgs/e.png":
     - "./assets/test_audios/echomimic_en.wav"
+
